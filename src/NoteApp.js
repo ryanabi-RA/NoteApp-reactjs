@@ -1,15 +1,15 @@
 // import './App.css';
 import './style/style.css';
 import Header from './components/global/Header';
-import NoteApp from './components/Note/NoteApp';
+import NoteBody from './components/NoteBody';
 
-function App() {
+function NoteApp() {
   return (
-    <div className="App">
+    <div className="note-app">
       <Header />
-      <NoteApp />
+      <NoteBody />
     </div>
   );
 }
 
-export default App;
+export default NoteApp;
