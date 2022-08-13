@@ -1,5 +1,6 @@
 import NoteInputBody from "./NoteInputBody";
 import NoteInputHeader from "./NoteInputHeader";
+import NoteInputSubmit from "./NoteInputSubmit";
 import NoteInputTitle from "./NoteInputTitle";
 
 export default function NoteInput({ title, maxChar, body, titleChange, bodyChange, onSubmit }) {
@@ -9,7 +10,7 @@ export default function NoteInput({ title, maxChar, body, titleChange, bodyChang
             <NoteInputHeader maxChar={maxChar} />
             <NoteInputTitle title={title} titleChange={titleChange} />
             <NoteInputBody body={body} bodyChange={bodyChange} />
-            <button onClick={onSubmit}>Buat</button>
+            <NoteInputSubmit onSubmit={onSubmit} />
         </div>
     );
 }

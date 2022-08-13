@@ -8,12 +8,14 @@ class NoteBody extends Component {
         super(props)
 
         this.state = {
+            notes: getInitialData(),
+
             title: '',
             body: '',
             resultChar: 50,
             limit: 50,
-            notes: getInitialData(),
-            status: true
+
+            search: ''
         }
 
         this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
@@ -23,6 +25,8 @@ class NoteBody extends Component {
         this.onDelete = this.onDelete.bind(this);
         this.onArchive = this.onArchive.bind(this);
         this.onActive = this.onActive.bind(this);
+
+        this.onSearchChangeEventHandler = this.onSearchChangeEventHandler.bind(this);
     }
 
     onTitleChangeEventHandler(event) {
@@ -34,7 +38,7 @@ class NoteBody extends Component {
                 }
             })
         }
-        console.log(this.state.title)
+        console.log(event.target.value)
     }
 
     onBodyChangeEventHandler(event) {
@@ -67,17 +71,26 @@ class NoteBody extends Component {
         console.log(this.state.notes)
     }
 
+    onSearchChangeEventHandler(event) {
+        this.setState(() => {
+            return {
+                search: event.target.value,
+            }
+        })
+        console.log(event.target.value)
+    }
+
     onDelete(id) {
         const notes = this.state.notes.filter(note => note.id !== id);
         this.setState({ notes });
     }
     onActive(id) {
-        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note)
+        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: false} : note)
         this.setState({ notes });
     }
 
     onArchive(id) {
-        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note)
+        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: true } : note)
         this.setState({ notes });
     }
 
