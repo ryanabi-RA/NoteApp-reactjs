@@ -17,6 +17,8 @@ class NoteBody extends Component {
         }
 
         this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
+        this.onBodyChangeEventHandler = this.onBodyChangeEventHandler.bind(this);
+        this.onSubmitChangeEventHandler = this.onSubmitChangeEventHandler.bind(this);
 
         this.onDelete = this.onDelete.bind(this);
         this.onArchive = this.onArchive.bind(this);
@@ -35,25 +37,55 @@ class NoteBody extends Component {
         console.log(this.state.title)
     }
 
+    onBodyChangeEventHandler(event) {
+        if (this.state.resultChar !== " ") {
+            this.setState((e) => {
+                return {
+                    body: event.target.value,
+                }
+            })
+        }
+        console.log(this.state.body)
+    }
+
+    onSubmitChangeEventHandler(event) {        
+        this.setState((prevState) => {
+            return {
+                notes: [
+                    ...prevState.notes,
+                    {
+                        id: +new Date(),
+                        title: this.state.title,
+                        body: this.state.body,
+                        createdAt: +new Date(),
+                        archived: false,
+                    }
+                ]
+            }
+        })
+        
+        console.log(this.state.notes)
+    }
+
     onDelete(id) {
         const notes = this.state.notes.filter(note => note.id !== id);
         this.setState({ notes });
     }
     onActive(id) {
-        const notes = this.state.notes.map((note) => note.id === id ? {...note, archived : !note.archived} : note)
+        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note)
         this.setState({ notes });
     }
-    
+
     onArchive(id) {
-        const notes = this.state.notes.map((note) => note.id === id ? {...note, archived : !note.archived} : note)
+        const notes = this.state.notes.map((note) => note.id === id ? { ...note, archived: !note.archived } : note)
         this.setState({ notes });
     }
 
     render() {
         return (
             <div className="note-app__body" >
-                <NoteInput maxChar={this.state.resultChar} title={this.state.title} titleChange={this.onTitleChangeEventHandler} />
-                <NoteList notes={this.state.notes} onDelete={this.onDelete} onArchive={this.onArchive} onActive={this.onActive}/>
+                <NoteInput maxChar={this.state.resultChar} title={this.state.title} titleChange={this.onTitleChangeEventHandler} body={this.state.body} bodyChange={this.onBodyChangeEventHandler} onSubmit={this.onSubmitChangeEventHandler} />
+                <NoteList notes={this.state.notes} onDelete={this.onDelete} onArchive={this.onArchive} onActive={this.onActive} />
             </div>
         )
     }
