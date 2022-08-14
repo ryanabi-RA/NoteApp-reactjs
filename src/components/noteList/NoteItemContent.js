@@ -1,13 +1,13 @@
-import NoteItemBody from "./NoteItemBody";
-import NoteItemDate from "./NoteItemDate";
-import NoteItemTitle from "./NoteItemTitle";
+import NoteItemContentBody from "./NoteItemContentBody";
+import NoteItemContentDate from "./NoteItemContentDate";
+import NoteItemContentTitle from "./NoteItemContentTitle";
 
 export default function NoteItemContent({title, date, body}) {
     return (
         <div className="note-item__content">
-            <NoteItemTitle title={title}/>
-            <NoteItemDate date={date}/>
-            <NoteItemBody body={body}/>
+            <NoteItemContentTitle title={title}/>
+            <NoteItemContentDate date={date}/>
+            <NoteItemContentBody body={body}/>
         </div>
     );
 }

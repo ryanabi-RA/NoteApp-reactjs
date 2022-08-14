@@ -1,7 +1,6 @@
 import NoteItem from "./NoteItem"
-// import Search from "../global/Search"
 
-export default function NoteListActive({ notes, onDelete, onArchive }) {
+export default function NoteListActive({ notes, onDelete, onArchive, search }) {
     const isActive = (note, archived) => {
         if (!archived) {
             return (
@@ -9,16 +8,13 @@ export default function NoteListActive({ notes, onDelete, onArchive }) {
             )
         }
     }
-    const searchText = 'mo'
-    const search = (searchText) => notes.filter((note) => note.title.toLowerCase().includes(searchText))
 
     return (
         <div>
             <h2>Catatan Aktif</h2>
             <div className="notes-list">
-                {search(searchText).map((note) => isActive(note, note.archived)
-                        // <NoteItem key={note.id} id={note.id} onDelete={onDelete} onArsip={onArsip} {...note} />
-                    )
+                {
+                    notes.filter((note) => note.title.toLowerCase().includes(search)).map((note) => isActive(note, note.archived))
                 }
             </div>
         </div>
