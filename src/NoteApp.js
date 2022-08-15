@@ -100,7 +100,7 @@ export default class NoteApp extends Component {
   render() {
     return (
       <div className="note-app">
-        <Header search={this.state.search} onSearch={this.onSearchChangeEventHandler} />
+        <Header searchtitle={this.state.search} onSearch={this.onSearchChangeEventHandler} />
         <NoteBody maxChar={this.state.resultChar} title={this.state.title} onTitleChange={this.onTitleChangeEventHandler} body={this.state.body} onBodyChange={this.onBodyChangeEventHandler} onSubmit={this.onSubmit} search={this.state.search} notes={this.state.notes} onDelete={this.onDelete} onArchive={this.onArchive} onActive={this.onActive} />
         {this.state.isOpen && <Popup onHandleClose={this.onHandleClose} content={this.state.contents} />}
       </div>

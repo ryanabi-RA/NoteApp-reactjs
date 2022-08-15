@@ -6,5 +6,5 @@ export default function Header({ search, onSearch }) {
             <h1>NOTES</h1>
             <Search search={search} onSearch={onSearch} />
         </div>
-    );
+    )
 }
