@@ -32,7 +32,7 @@ export default class NoteApp extends Component {
     this.onActive = this.onActive.bind(this)
 
     this.onSearchChangeEventHandler = this.onSearchChangeEventHandler.bind(this)
-    this.togglePopup = this.togglePopup.bind(this)
+    this.onHandleClose = this.onHandleClose.bind(this)
   }
 
   onTitleChangeEventHandler(event) {
@@ -74,7 +74,7 @@ export default class NoteApp extends Component {
     }
   }
 
-  togglePopup() {
+  onHandleClose() {
     this.setState({ isOpen: false })
   }
 
@@ -102,7 +102,7 @@ export default class NoteApp extends Component {
       <div className="note-app">
         <Header search={this.state.search} onSearch={this.onSearchChangeEventHandler} />
         <NoteBody maxChar={this.state.resultChar} title={this.state.title} onTitleChange={this.onTitleChangeEventHandler} body={this.state.body} onBodyChange={this.onBodyChangeEventHandler} onSubmit={this.onSubmit} search={this.state.search} notes={this.state.notes} onDelete={this.onDelete} onArchive={this.onArchive} onActive={this.onActive} />
-        {this.state.isOpen && <Popup handleClose={this.togglePopup} content={this.state.contents} />}
+        {this.state.isOpen && <Popup onHandleClose={this.onHandleClose} content={this.state.contents} />}
       </div>
     )
   }

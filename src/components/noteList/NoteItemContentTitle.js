@@ -3,5 +3,5 @@ export default function NoteItemContentTitle({title}) {
         <div className="note-item__title">
             <h3>{title}</h3>
         </div>
-    );
+    )
 }

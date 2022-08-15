@@ -1,6 +1,6 @@
-import NoteItemContentBody from "./NoteItemContentBody";
-import NoteItemContentDate from "./NoteItemContentDate";
-import NoteItemContentTitle from "./NoteItemContentTitle";
+import NoteItemContentBody from "./NoteItemContentBody"
+import NoteItemContentDate from "./NoteItemContentDate"
+import NoteItemContentTitle from "./NoteItemContentTitle"
 
 export default function NoteItemContent({title, date, body}) {
     return (
@@ -9,5 +9,5 @@ export default function NoteItemContent({title, date, body}) {
             <NoteItemContentDate date={date}/>
             <NoteItemContentBody body={body}/>
         </div>
-    );
+    )
 }

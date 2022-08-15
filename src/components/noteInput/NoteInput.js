@@ -1,7 +1,7 @@
-import NoteInputBody from "./NoteInputBody";
-import NoteInputHeader from "./NoteInputHeader";
-import NoteInputSubmit from "./NoteInputSubmit";
-import NoteInputTitle from "./NoteInputTitle";
+import NoteInputBody from "./NoteInputBody"
+import NoteInputHeader from "./NoteInputHeader"
+import NoteInputSubmit from "./NoteInputSubmit"
+import NoteInputTitle from "./NoteInputTitle"
 
 export default function NoteInput({ title, maxChar, body, onTitleChange, onBodyChange, onSubmit }) {
 
@@ -12,5 +12,5 @@ export default function NoteInput({ title, maxChar, body, onTitleChange, onBodyC
             <NoteInputBody body={body} onBodyChange={onBodyChange} />
             <NoteInputSubmit onSubmit={onSubmit} />
         </div>
-    );
+    )
 }

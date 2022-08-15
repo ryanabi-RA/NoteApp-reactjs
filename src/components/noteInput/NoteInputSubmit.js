@@ -3,5 +3,5 @@ export default function NoteInputSubmit({ onSubmit }) {
         <div>
             <button onClick={onSubmit}>Buat</button>
         </div>
-    );
+    )
 }

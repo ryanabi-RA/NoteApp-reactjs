@@ -18,5 +18,5 @@ export default function NoteListActive({ notes, onDelete, onArchive, search }) {
                 }
             </div>
         </div>
-    );
+    )
 }

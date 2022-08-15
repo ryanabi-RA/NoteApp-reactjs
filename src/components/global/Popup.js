@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Popup = ({ handleClose, content }) => {
   return (
@@ -8,7 +8,7 @@ const Popup = ({ handleClose, content }) => {
         {content}        
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Popup;

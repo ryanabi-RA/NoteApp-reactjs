@@ -3,5 +3,5 @@ export default function NoteItemContentBody({body}) {
         <div className="note-item__body">
             <p>{body}</p>
         </div>
-    );
+    )
 }
