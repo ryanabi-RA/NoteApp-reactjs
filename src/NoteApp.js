@@ -16,7 +16,6 @@ export default class NoteApp extends Component {
       title: '',
       body: '',
       resultChar: 50,
-      limit: 50,
 
       search: '',
       isOpen: false,
@@ -36,10 +35,11 @@ export default class NoteApp extends Component {
   }
 
   onTitleChangeEventHandler(event) {
-    if (this.state.resultChar > 0) {
+    const limit = 50
+    if (this.state.resultChar >= 0) {
       this.setState({
-        title: event.target.value,
-        resultChar: this.state.limit - event.target.value.length
+        title: event.target.value.slice(0, limit),
+        resultChar: (limit - event.target.value.length) < 0 ? 0 : (limit - event.target.value.length)
       })
     }
   }
@@ -84,7 +84,8 @@ export default class NoteApp extends Component {
 
   onDelete(id) {
     const notes = this.state.notes.filter(note => note.id !== id)
-    alert("Apakah ingin menghapus catatan ini ?", this.setState({ notes }))
+    this.setState({ notes })
+    // alert("Apakah ingin menghapus catatan ini ?", this.setState({ notes }))
   }
 
   onActive(id) {
